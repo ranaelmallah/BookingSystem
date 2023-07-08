@@ -1,0 +1,23 @@
+<div class="log  text ">
+  <form action="../account/account.component.html" class="log user needs-validation form-group "  #signForm="ngForm" [formGroup]="signup" novalidate>
+    <div class="m-2 text-center ">
+      <input type="text" formControlName="name" placeholder="FUll Name" class="p-2 form-control" id="validationTooltip01" required ngModel>
+    </div>
+    <div class="m-2  text-center">
+      <input type="text" formControlName="phone" placeholder="phone" class="p-2  form-control" id="validationTooltip01" required ngModel>
+    </div>
+    <div class="m-2  text-center">
+      <input type="email" formControlName="email" class="p-2  form-control" id="validationTooltip01" placeholder="Email" required ngModel>
+    </div>
+
+    <div class="m-2 text-center">
+      <input type="password " formControlName="password" class="p-2  form-control" id="validationTooltip01 " placeholder="Password " required ngModel>
+    </div>
+    <div class="m-2 text-center">
+      <input type="Confirm password " formControlName="password_confirmation" class="p-2   form-control " id="validationTooltip01 " placeholder="confirm Password " required ngModel>
+    </div>
+    <div class="sing  text-center "> <button   type="submit" class="text-center" (click)="postSign(signForm.value)" >SING UP</button>
+      <a  routerLink="/log" class=" text-dark text-center d-block ">Already Have an account ?</a>
+    </div>
+  </form>
+</div>

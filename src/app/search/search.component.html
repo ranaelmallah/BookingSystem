@@ -1,0 +1,111 @@
+
+<header>
+  <div class=" ser">
+    <form class="form-inline d-flex search " action="/action_page.php" [formGroup]="search" id="formCreate" method="get"
+      (ngSubmit)="ser()" novalidate>
+      <div class="m-2  text-center   ">
+        <select formControlName="service" class="form-control service" id="service" name="service_id" required
+          (change)="changeCategory($event)">
+          <option value="" disabled selected hidden>Select your service </option>
+          <option value={{cat.id}} *ngFor="let cat of categories">{{cat.name}}</option>
+        </select>
+      </div>
+      <div class="m-2  text-center">
+        <select formControlName="governorate" class="form-control" id="gov" name="governorate_id"
+          (change)="getRegionsForGovernment($event)" required ngModel>
+          <option value="" disabled selected hidden>Select your governorate </option>
+          <option value={{govern.id}} *ngFor="let govern of governments">{{govern.name}}</option>
+        </select>
+      </div>
+      <div class="m-2  text-center">
+        <select formControlName="region" class="form-control" id="area" name="region_id" required ngModel
+          (change)="getItemsForRegion($event)">
+          <option value="" disabled selected hidden>Select your region </option>
+          <option value={{reg.id}} *ngFor="let reg of regions">{{reg.name}}</option>
+        </select>
+      </div>
+      <div class="m-2  text-center">
+        <button type="submit" class="btn btn-danger text-black" [disabled]="!regionId || !catId"
+          (click)="showItem=true;scrollPage()">Search</button>
+      </div>
+    </form>
+  </div>
+</header>
+<div class="row mt-4 mb-4" *ngIf="items && showItem">
+  <div class="col-xxl-4 col-xl-4 col-lg-4 col-md-6 col-sm-12 mt-4 mb-4" *ngFor="let item of items">
+    <div class="card" [routerLink]="['/service-info',item.id]">
+      <div class="cont">
+        <img src={{item.photo}} class="card-img-top image cardImg" />
+      </div>
+      <div class="card-body text-center">
+        <p class="card-text">{{item.name}}</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,180 @@
+
+<div class="container-fluid" *ngIf="detailes">
+  <app-navbar></app-navbar>
+<div class="row">
+      <div class="text-center mb-2" *ngIf="detailes.name">
+          <h2 class="title">{{detailes.name}}
+          </h2>
+      </div>
+      <div class="col-3 mt-4 pt-3" *ngIf="detailes.details.desc">
+          <p>{{detailes.details.desc|slice:0:200}}</p>
+      </div>
+      <div class="col-9">
+          <div class="row">
+              <div class="col-12">
+                  <img [src]="detailes.details.image" height="600" width="100%"></div>
+                  <div class="col-4 mt-4">
+                      <img [src]="detailes.images[0].image" height="200" width="100%"></div>
+                      <div class="col-4 mt-4">
+                          <img [src]="detailes.images[1].image" height="200" width="100%"></div>
+                          <div class="col-4  mt-4">
+                              <img [src]="detailes.images[2].image" height="200" width="100%"></div>
+                          </div>
+                      </div>
+</div>
+<!-- ////////////////////////////////////////////////////// -->
+<div class="row" *ngIf="detailes.prodservice">
+  <div class="text-center">
+  <h2><span class="underlined">Our</span> Services
+  </h2>
+</div>
+<div class="col-3" *ngFor="let serv of detailes.prodservice">
+
+      <div class="card mt-4">
+        <div class="card-body">
+          <h5 class="card-title">{{serv.name}}</h5>
+          <p class="card-text serviceText">{{serv.description | slice:0:70}}</p>
+        </div>
+      </div>
+
+</div>
+</div>
+<!-- //////////////////////////////////////////////////////// -->
+<div class="row" *ngIf="detailes.prodstaffs">
+  <div class="text-center mb-4">
+      <h2><span class="underlined">Our</span> Staff
+      </h2>
+  </div>
+  <ng-container *ngFor="let item of detailes.prodstaffs;let i=index">
+  <div class="col-md-2 col-sm-4 col-xs-6 text-center" *ngIf="i<6">
+       <img [src]="item.image" alt="Circle Image" class="img-circle">
+      <p class="mt-2">{{item.title}}</p>
+    </div>
+    </ng-container>
+
+</div>
+<!-- //////////////////////////resturant//////////////////////////// -->
+<div class="row" *ngIf="detailes.category_id==4">
+  <div class="text-center mb-4">
+  <h2><span class="underlined">You</span> Can Book Here
+  </h2>
+</div>
+<div class="col-3 mt-3" *ngFor="let reserv of detailes.reserve">
+  <div class="card" style="width: 18rem;">
+      <div class="card-body">
+        <h5 class="card-title">table number {{reserv.id}}</h5>
+        <ng-container *ngIf="reserv.user_info">
+          <h5>User Name {{reserv.user_info.name}}</h5>
+      </ng-container>
+
+        <button  class="btn btn-primary w-100" (click)="callBookTAble(reserv.id)" *ngIf="!reserv.reserve">Book now</button>
+        <button  class="btn btn-primary w-100" (click)="callBookTAble(reserv.id)" [disabled]="reserv.reserve"  *ngIf="reserv.reserve">Booked</button>
+      </div>
+    </div>
+</div>
+</div>
+<!-- /////////////////////////hotel///////////////////////////// -->
+<div class="row" *ngIf="detailes.category_id==5">
+  <div class="text-center mb-4">
+  <h2><span class="underlined">You</span> Can Book Here
+  </h2>
+</div>
+<div class="col-3 mt-3" *ngFor="let reserv of detailes.reserve">
+  <div class="card" style="width: 18rem;">
+      <div class="card-body">
+        <h5 class="card-title">room number {{reserv.id}}</h5>
+        <ng-container *ngIf="reserv.user_info">
+          <h5>User Name {{reserv.user_info.name}}</h5>
+      </ng-container>          <button  class="btn btn-primary w-100" (click)="callBookRoom(reserv.id)" *ngIf="!reserv.reserve">Book now</button>
+        <button  class="btn btn-primary w-100" (click)="callBookRoom(reserv.id)" [disabled]="reserv.reserve"  *ngIf="reserv.reserve">Booked</button>
+      </div>
+    </div>
+</div>
+</div>
+<!-- //////////////////////hospital//////////////////////////////// -->
+<div class="row" *ngIf="detailes.category_id==6">
+  <div class="text-center mb-4">
+  <h2><span class="underlined">You</span> Can Book Here
+  </h2>
+</div>
+<div class="col-3 mt-3" *ngFor="let reserv of detailes.reservemedical">
+  <div class="card" style="width: 18rem;">
+      <div class="card-body">
+        <h5 class="card-title">{{reserv.type}} number {{reserv.id}}</h5>
+        <ng-container *ngIf="reserv.user_info">
+          <h5>User Name {{reserv.user_info.name}}</h5>
+      </ng-container>           <button  class="btn btn-primary w-100" (click)="callBookMedical(reserv.id,reserv.type)" *ngIf="!reserv.reserve">Book now</button>
+        <button  class="btn btn-primary w-100" (click)="callBookTAble(reserv.id)" [disabled]="reserv.reserve"  *ngIf="reserv.reserve">Booked</button>
+      </div>
+    </div>
+</div>
+<div class="col-3 mt-3" *ngFor="let reserv of detailes.reserveperation">
+  <div class="card" style="width: 18rem;">
+      <div class="card-body">
+        <h5 class="card-title">{{reserv.type}} number {{reserv.id}}</h5>
+        <ng-container *ngIf="reserv.user_info">
+          <h5>User Name {{reserv.user_info.name}}</h5>
+      </ng-container>           <button  class="btn btn-primary w-100" (click)="callBookMedical(reserv.id,reserv.type)" *ngIf="!reserv.reserve">Book now</button>
+        <button  class="btn btn-primary w-100" (click)="callBookTAble(reserv.id)" [disabled]="reserv.reserve"  *ngIf="reserv.reserve">Booked</button>
+      </div>
+    </div>
+</div>
+</div>
+
+
+<!-- ////////////////////////////////////////////////////// -->
+<div class="row" *ngIf="detailes.details.about">
+  <div class="text-center mb-4">
+  <h2><span class="underlined">Who</span> We Are
+  </h2>
+</div>
+<div class="col-12">
+  <p>{{detailes.details.about}}</p>
+</div>
+</div>
+<!-- ////////////////////////////////////////////////////// -->
+<div class="row" *ngIf="detailes.details.mission">
+  <div class="text-center mb-4">
+  <h2><span class="underlined">Our</span> mission
+  </h2>
+</div>
+<div class="col-12">
+  <p>{{detailes.details.mission}}</p>
+</div>
+</div>
+<!-- ////////////////////////////////////////////////////// -->
+<div class="row" *ngIf="detailes.details.vision">
+  <div class="text-center mb-4">
+  <h2><span class="underlined">Our</span> vision
+  </h2>
+</div>
+<div class="col-12">
+  <p>{{detailes.details.vision}}</p>
+</div>
+</div>
+<!-- ////////////////////////////////////////////////////// -->
+<div class="row" *ngIf="detailes.details.email">
+  <div class="text-center mb-4">
+  <h2><span class="underlined">Con</span>tact Us
+  </h2>
+</div>
+<div class="col-12 justify-content-around d-flex">
+  <div><i class="fas fa-envelope"></i>
+      <h3>Email Us</h3> <p>{{detailes.details.email
+}}</p></div>
+  <div><i class="fas fa-phone-alt"></i>
+      <h3>Call Us</h3> <p>{{detailes.details.phone
+      }}</p></div>
+</div>
+</div>
+<!-- /////////////////////////////////////////////////////////// -->
+<div class="row" >
+  <div class="text-center mb-4">
+  <h2><span class="underlined">You</span> Can Visit Us Here
+  </h2>
+</div>
+<div class="col-12">
+<iframe [src]="placeLocation" width="100%" height="600" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+</div>
+</div>
+</div>

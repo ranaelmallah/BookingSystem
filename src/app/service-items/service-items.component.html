@@ -1,0 +1,30 @@
+<div class="container-fluid">    <div class="text-center titleDiv">       
+    </div>
+    <div class="row filteration">
+      <div class="col-6 mt-2">
+        <label class="mb-1"  for="inlineFormSelectPref">Select City : </label>
+        <select class="select inpElement" (change)="getRegionsForGovernment($event)">
+          <option value="" disabled selected hidden>Select City...</option>
+          <option value={{item.id}} *ngFor="let item of governments">{{item.name}}</option>
+      </select>
+   </div>
+   <div class="col-6 mt-2">
+    <label class="mb-1"  for="inlineFormSelectPref">Select Region : </label>
+   <select class="select inpElement" (change)="getResturantsForRegion($event)">
+       <option value="" disabled selected hidden>Select Region...</option>
+       <option value={{item.id}} *ngFor="let item of regions" >{{item.name}}</option>
+   </select>
+</div></div>
+<div class="row">
+        <div class="col-xxl-4 col-xl-4 col-lg-4 col-md-6 col-sm-12" *ngFor="let item of items">
+            <div class="card" [routerLink]="['/service-info',item.id]" >
+              <div class="cont">
+                <img src={{item.photo}} class="card-img-top image" />
+                <div class="middle"> <div class="text subBtn">More Details</div> </div> 
+              </div><div class="card-body text-center">
+                  <p class="card-text">{{item.name}}</p>
+                </div>
+              </div>
+        </div>
+    </div>
+</div>

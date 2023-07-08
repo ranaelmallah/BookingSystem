@@ -1,0 +1,18 @@
+<header class="bg-black p-5">
+  <h1 class="text-center text-light mt-5">ACCOUNT</h1>
+</header>
+<div class="log ">
+  <form action="../account/account.component.html" class="log needs-validation " [formGroup]="login" #loginForm="ngForm" novalidate >
+    <div class="  form-group">
+      <input formControlName="email" type="email" class="p-2  form-control" id="validationTooltip01" placeholder="Email" required ngModel>
+    </div>
+    <div class=" form-group">
+      <input formControlName="password" type="password " class="p-2 form-control" id="validationTooltip01 " placeholder="Password " required ngModel>
+    </div>
+    <div class="sing "> <button type="submit"  (click)="postLogn(loginForm.value)" [disabled]="!login.valid" class="">SING IN</button>
+    </div>
+    <a  routerLink="/signUp" class=" text-dark  d-block" >Create account</a>
+    
+    </form>
+</div>
+

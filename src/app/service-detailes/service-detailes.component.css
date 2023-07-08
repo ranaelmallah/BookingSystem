@@ -1,0 +1,35 @@
+.container-fluid
+{
+    margin-top:80px;
+    max-width:100%!important;
+    overflow: hidden;
+}
+.img-circle
+{
+    height:200px;
+    width:200px;
+    border-radius:50%;
+    
+}
+.title {
+    font-size: 2rem;
+    font-weight: bold;
+    color: #333;
+    text-transform: uppercase;
+    /* Other styles */
+  }
+  .subtitle {
+    font-weight:normal;
+    color:black;  }
+  .underlined
+  {
+    border-bottom:3px solid #d4a373;
+  }
+  .row
+  {
+    margin:40px;
+  }
+  .serviceText
+  {
+    height: 80px;
+  }

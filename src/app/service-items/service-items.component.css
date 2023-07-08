@@ -1,0 +1,90 @@
+.container-fluid
+{
+    overflow: hidden;
+    padding:70px 5% 70px 5%;
+}
+.card{
+margin-top:40px;
+cursor: pointer;
+}
+.titleDiv
+{
+    color: #bd9d7e;
+    padding-top:35px;
+    text-decoration: underline;
+
+}
+.card-body
+{
+    background-color:#e3f1ff;
+    font-weight:800;
+    font-size: large;
+    color:rgb(63, 55, 55);
+}
+img{
+    height:220px;
+}
+.cont {
+  position: relative;
+
+}
+
+.image {
+  opacity: 1;
+  display: block;
+  width: 100%;
+  height: 300px;
+  transition: .5s ease;
+  backface-visibility: hidden;
+}
+
+.middle {
+  transition: .5s ease;
+  opacity: 0;
+  position: absolute;
+  top: 60%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%);
+  text-align: center;
+}
+
+.cont:hover .image {
+  opacity: 0.3;
+}
+.cont:hover .middle {
+  opacity: 1;
+}
+
+.text {
+  background-color: #5f574d;
+  color: white;
+  font-size: 16px;
+  padding: 16px 32px;
+  border-radius:12px;
+}
+.subBtn
+{
+    cursor: pointer;
+    border-radius: 3px;
+    font-weight: 600;
+}
+.subTxt
+{
+    font-weight: 600;
+    color: #947005;
+}
+select{
+    width:70%;
+    color:black;
+    border-color: #e3f1ff;
+}
+.filteration
+{
+    margin-top:34px!important;
+}
+label{
+    color:black;
+    font-weight:600;
+    margin-right:8px;
+}

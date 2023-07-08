@@ -1,0 +1,34 @@
+
+.log{
+  background-color: #ebe9e4;
+  padding: 30px;
+  display: flex;
+  flex-direction: column;
+ align-items: center;
+ justify-content: center;
+ height: 100vh;
+}
+.form-group{
+  margin: 10px;
+  text-align: center;
+}
+button[type=submit] {
+  background: #9a9692;
+  border: 0;
+  border-radius: 12px;
+  padding: 10px 24px;
+  color: #fff;
+  transition: 0.4s;
+cursor: pointer;
+}
+input
+{
+  border: none;
+  width: 300px;
+  border-radius: 12px;
+}
+button[disabled] {
+  background: #e3e1df;
+  cursor:auto;
+
+}
